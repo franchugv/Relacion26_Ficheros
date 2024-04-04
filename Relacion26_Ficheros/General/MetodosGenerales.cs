@@ -34,8 +34,13 @@ namespace Relacion26_Ficheros.General
         }
 
 
-        public static void MostrarDirectorio(string[] archivos, string text)
+        public static void MostrarDirectorio(string text, string destino, string origen)
         {
+
+            // Asignar el direcctorio completo a un ARRAY usando getFiles 
+            string[] archivos = Directory.GetFiles(origen);
+            string[] archivosD = Directory.GetFiles(destino); ;
+
             Console.WriteLine($"\nDIRECTORIO {text}\n");
 
             foreach (string cadena in archivos)

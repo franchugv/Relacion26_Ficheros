@@ -54,13 +54,11 @@ namespace Relacion26_Ficheros.General
                         case MenuOpciones.Consultar:
                             UIPrincipal.UIPrincipal.Pausa();
 
-                            // Asignar el direcctorio completo a un ARRAY usando getFiles 
-                            string[] archivos = Directory.GetFiles(DIRECTORIO_ORIGEN);
-                            string[] archivosD = Directory.GetFiles(DIRECTORIO_DESTINO); ;
+                         
 
                             // Mostrar por medio de un foreach el nombre del archivo usando GetFileName
-                            General.MetodosGenerales.MostrarDirectorio(archivos, "ORIGEN");
-                            General.MetodosGenerales.MostrarDirectorio(archivosD, "DESTINO");
+                            General.MetodosGenerales.MostrarDirectorio("ORIGEN", DIRECTORIO_DESTINO, DIRECTORIO_ORIGEN);
+                            General.MetodosGenerales.MostrarDirectorio("DESTINO", DIRECTORIO_DESTINO, DIRECTORIO_ORIGEN);
                             UIPrincipal.UIPrincipal.Pausa();
                             break;
 
