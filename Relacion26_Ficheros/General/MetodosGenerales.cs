@@ -9,6 +9,10 @@ namespace Relacion26_Ficheros.General
     public enum MenuOpciones: byte { Salir, Añadir, Copiar, Mover, Eliminar, Consultar } // TODOO: SI
     public static class MetodosGenerales
     {
+
+        const string EX_ORIGEN = ".txt";
+        const string EX_DESTINO = ".bak";
+
         public static void MostrarError(string error)
         {
             Console.WriteLine(error);
@@ -58,7 +62,7 @@ namespace Relacion26_Ficheros.General
         public static void Añadir(string DIRECTORIO_ORIGEN)
         {
             string Fichero = MetodosGenerales.CaptarCadena("nombre del fichero");
-            File.Create($"{DIRECTORIO_ORIGEN}{Fichero}.txt");
+            File.Create($"{DIRECTORIO_ORIGEN}{Fichero}{EX_ORIGEN}");
             UIPrincipal.UIPrincipal.Pausa();
         }
 
@@ -67,7 +71,7 @@ namespace Relacion26_Ficheros.General
             Fichero = MetodosGenerales.CaptarCadena("nombre del fichero");
             FicheroNuevo = MetodosGenerales.CaptarCadena("nombre del nuevo fichero");
 
-            File.Copy($"{DIRECTORIO_ORIGEN}{Fichero}.txt", $"{DIRECTORIO_DESTINO}{FicheroNuevo}.bak");
+            File.Copy($"{DIRECTORIO_ORIGEN}{Fichero}{EX_ORIGEN}", $"{DIRECTORIO_DESTINO}{FicheroNuevo}{EX_DESTINO}");
             UIPrincipal.UIPrincipal.Pausa();
         }
 
@@ -75,7 +79,7 @@ namespace Relacion26_Ficheros.General
         {
             Fichero = MetodosGenerales.CaptarCadena("nombre del fichero");
 
-            File.Move($"{DIRECTORIO_ORIGEN}{Fichero}.txt", $"{DIRECTORIO_DESTINO}{Fichero}.bak");
+            File.Move($"{DIRECTORIO_ORIGEN}{Fichero}{EX_ORIGEN}", $"{DIRECTORIO_DESTINO}{Fichero}{EX_DESTINO}");
             UIPrincipal.UIPrincipal.Pausa();
         }
 

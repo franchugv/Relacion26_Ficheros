@@ -13,6 +13,7 @@ namespace Relacion26_Ficheros.General
         {
 
             // RECURSOS
+
             const string DIRECTORIO_ORIGEN = "c:\\Ficheros\\";
             const string DIRECTORIO_DESTINO = "c:\\OtrosFicheros\\";
 
@@ -45,7 +46,7 @@ namespace Relacion26_Ficheros.General
                             General.MetodosGenerales.Copiar(DIRECTORIO_ORIGEN, DIRECTORIO_DESTINO, out Fichero, out FicheroNuevo);
                             break;
                         case MenuOpciones.Mover:
-                            General.MetodosGenerales.Mover(DIRECTORIO_ORIGEN, DIRECTORIO_DESTINO, out Fichero, out FicheroNuevo);
+                            General.MetodosGenerales.Mover(DIRECTORIO_ORIGEN, DIRECTORIO_DESTINO, out Fichero);
                             break;
                         case MenuOpciones.Eliminar:
                             General.MetodosGenerales.Eliminar(DIRECTORIO_DESTINO);
