@@ -58,7 +58,7 @@ namespace Relacion26_Ficheros.General
         public static void Añadir(string DIRECTORIO_ORIGEN)
         {
             string Fichero = MetodosGenerales.CaptarCadena("nombre del fichero");
-            File.Create($"{DIRECTORIO_ORIGEN}{Fichero}");
+            File.Create($"{DIRECTORIO_ORIGEN}{Fichero}.txt");
             UIPrincipal.UIPrincipal.Pausa();
         }
 
@@ -67,7 +67,7 @@ namespace Relacion26_Ficheros.General
             Fichero = MetodosGenerales.CaptarCadena("nombre del fichero");
             FicheroNuevo = MetodosGenerales.CaptarCadena("nombre del nuevo fichero");
 
-            File.Copy($"{DIRECTORIO_ORIGEN}{Fichero}", $"{DIRECTORIO_DESTINO}{FicheroNuevo}");
+            File.Copy($"{DIRECTORIO_ORIGEN}{Fichero}.txt", $"{DIRECTORIO_DESTINO}{FicheroNuevo}.bak");
             UIPrincipal.UIPrincipal.Pausa();
         }
 
@@ -76,7 +76,7 @@ namespace Relacion26_Ficheros.General
             Fichero = MetodosGenerales.CaptarCadena("nombre del fichero");
             FicheroNuevo = MetodosGenerales.CaptarCadena("nombre del nuevo fichero");
 
-            File.Move($"{DIRECTORIO_ORIGEN}{Fichero}", $"{DIRECTORIO_DESTINO}{FicheroNuevo}");
+            File.Move($"{DIRECTORIO_ORIGEN}{Fichero}.txt", $"{DIRECTORIO_DESTINO}{FicheroNuevo}.bak");
             UIPrincipal.UIPrincipal.Pausa();
         }
 

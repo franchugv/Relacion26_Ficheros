@@ -39,39 +39,27 @@ namespace Relacion26_Ficheros.General
                         case MenuOpciones.Salir:
                             break;
                         case MenuOpciones.Añadir:
-
                             General.MetodosGenerales.Añadir(DIRECTORIO_ORIGEN);
-
                             break;
                         case MenuOpciones.Copiar:
-
                             General.MetodosGenerales.Copiar(DIRECTORIO_ORIGEN, DIRECTORIO_DESTINO, out Fichero, out FicheroNuevo);
-
                             break;
                         case MenuOpciones.Mover:
                             General.MetodosGenerales.Mover(DIRECTORIO_ORIGEN, DIRECTORIO_DESTINO, out Fichero, out FicheroNuevo);
-
                             break;
                         case MenuOpciones.Eliminar:
                             General.MetodosGenerales.Eliminar(DIRECTORIO_DESTINO);
-
                             break;
-
                         case MenuOpciones.Consultar:
-
                             UIPrincipal.UIPrincipal.Pausa();
 
                             // Asignar el direcctorio completo a un ARRAY usando getFiles 
                             string[] archivos = Directory.GetFiles(DIRECTORIO_ORIGEN);
-
                             string[] archivosD = Directory.GetFiles(DIRECTORIO_DESTINO); ;
 
                             // Mostrar por medio de un foreach el nombre del archivo usando GetFileName
                             General.MetodosGenerales.MostrarDirectorio(archivos, "ORIGEN");
-
                             General.MetodosGenerales.MostrarDirectorio(archivosD, "DESTINO");
-
-
                             UIPrincipal.UIPrincipal.Pausa();
                             break;
 
