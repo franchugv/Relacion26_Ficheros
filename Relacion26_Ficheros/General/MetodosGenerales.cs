@@ -29,17 +29,6 @@ namespace Relacion26_Ficheros.General
             return cadena;
         }
 
-        public static byte CaptarByte()
-        {
-            string aux = "";
-            byte opcion = 0;
-
-            aux = Console.ReadLine();
-            opcion = Convert.ToByte(aux);
-
-            return opcion;
-
-        }
 
         public static void MostrarDirectorio(string[] archivos, string text)
         {
@@ -53,17 +42,50 @@ namespace Relacion26_Ficheros.General
             }
         }
 
-        public static byte captarByte()
+        public static byte CaptarByte(byte NumOpciones)
         {
             string aux = "";
             byte option = 0;
 
+
             aux = Console.ReadLine();
             option = Convert.ToByte(aux);
 
+            if (option >= NumOpciones) throw new OverflowException();
+
             return option;
         }
+        public static void Añadir(string DIRECTORIO_ORIGEN)
+        {
+            string Fichero = MetodosGenerales.CaptarCadena("nombre del fichero");
+            File.Create($"{DIRECTORIO_ORIGEN}{Fichero}");
+            UIPrincipal.UIPrincipal.Pausa();
+        }
 
+        public static void Copiar(string DIRECTORIO_ORIGEN, string DIRECTORIO_DESTINO, out string Fichero, out string FicheroNuevo)
+        {
+            Fichero = MetodosGenerales.CaptarCadena("nombre del fichero");
+            FicheroNuevo = MetodosGenerales.CaptarCadena("nombre del nuevo fichero");
+
+            File.Copy($"{DIRECTORIO_ORIGEN}{Fichero}", $"{DIRECTORIO_DESTINO}{FicheroNuevo}");
+            UIPrincipal.UIPrincipal.Pausa();
+        }
+
+        public static void Mover(string DIRECTORIO_ORIGEN, string DIRECTORIO_DESTINO, out string Fichero, out string FicheroNuevo)
+        {
+            Fichero = MetodosGenerales.CaptarCadena("nombre del fichero");
+            FicheroNuevo = MetodosGenerales.CaptarCadena("nombre del nuevo fichero");
+
+            File.Move($"{DIRECTORIO_ORIGEN}{Fichero}", $"{DIRECTORIO_DESTINO}{FicheroNuevo}");
+            UIPrincipal.UIPrincipal.Pausa();
+        }
+
+        public static void Eliminar(string DIRECTORIO_DESTINO)
+        {
+            string Fichero = MetodosGenerales.CaptarCadena("nombre del fichero");
+            File.Delete($"{DIRECTORIO_DESTINO}{Fichero}");
+            UIPrincipal.UIPrincipal.Pausa();
+        }
 
     }
 }

@@ -32,7 +32,7 @@ namespace Relacion26_Ficheros.General
                 try
                 {
 
-                    opcion = (MenuOpciones)MetodosGenerales.captarByte();
+                    opcion = (MenuOpciones)MetodosGenerales.CaptarByte((byte)Enum.GetValues<MenuOpciones>().Length);
                 
                     switch (opcion)
                     {
@@ -40,35 +40,20 @@ namespace Relacion26_Ficheros.General
                             break;
                         case MenuOpciones.Añadir:
 
-                            Fichero = MetodosGenerales.CaptarCadena("nombre del fichero");
-
-                            File.Create($"{DIRECTORIO_ORIGEN}{Fichero}");
-                            UIPrincipal.UIPrincipal.Pausa();
+                            General.MetodosGenerales.Añadir(DIRECTORIO_ORIGEN);
 
                             break;
                         case MenuOpciones.Copiar:
 
-
-                            Fichero = MetodosGenerales.CaptarCadena("nombre del fichero");
-                            FicheroNuevo = MetodosGenerales.CaptarCadena("nombre del nuevo fichero");
-
-                            File.Copy($"{DIRECTORIO_ORIGEN}{Fichero}", $"{DIRECTORIO_DESTINO}{FicheroNuevo}");
-                            UIPrincipal.UIPrincipal.Pausa();
+                            General.MetodosGenerales.Copiar(DIRECTORIO_ORIGEN, DIRECTORIO_DESTINO, out Fichero, out FicheroNuevo);
 
                             break;
                         case MenuOpciones.Mover:
-                            Fichero = MetodosGenerales.CaptarCadena("nombre del fichero");
-                            FicheroNuevo = MetodosGenerales.CaptarCadena("nombre del nuevo fichero");
-
-                            File.Move($"{DIRECTORIO_ORIGEN}{Fichero}", $"{DIRECTORIO_DESTINO}{FicheroNuevo}");
-                            UIPrincipal.UIPrincipal.Pausa();
+                            General.MetodosGenerales.Mover(DIRECTORIO_ORIGEN, DIRECTORIO_DESTINO, out Fichero, out FicheroNuevo);
 
                             break;
                         case MenuOpciones.Eliminar:
-                            Fichero = MetodosGenerales.CaptarCadena("nombre del fichero");
-
-                            File.Delete($"{DIRECTORIO_DESTINO}{Fichero}");
-                            UIPrincipal.UIPrincipal.Pausa();
+                            General.MetodosGenerales.Eliminar(DIRECTORIO_DESTINO);
 
                             break;
 
@@ -101,8 +86,9 @@ namespace Relacion26_Ficheros.General
                 {
                     if (!esValido) MetodosGenerales.MostrarError(error);
                 }
-            } while (!esValido || opcion != 0);
+            } while (!esValido || opcion != MenuOpciones.Salir);
         }
+
 
     }
 }
