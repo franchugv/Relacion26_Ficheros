@@ -71,12 +71,11 @@ namespace Relacion26_Ficheros.General
             UIPrincipal.UIPrincipal.Pausa();
         }
 
-        public static void Mover(string DIRECTORIO_ORIGEN, string DIRECTORIO_DESTINO, out string Fichero, out string FicheroNuevo)
+        public static void Mover(string DIRECTORIO_ORIGEN, string DIRECTORIO_DESTINO, out string Fichero)
         {
             Fichero = MetodosGenerales.CaptarCadena("nombre del fichero");
-            FicheroNuevo = MetodosGenerales.CaptarCadena("nombre del nuevo fichero");
 
-            File.Move($"{DIRECTORIO_ORIGEN}{Fichero}.txt", $"{DIRECTORIO_DESTINO}{FicheroNuevo}.bak");
+            File.Move($"{DIRECTORIO_ORIGEN}{Fichero}.txt", $"{DIRECTORIO_DESTINO}{Fichero}.bak");
             UIPrincipal.UIPrincipal.Pausa();
         }
 
