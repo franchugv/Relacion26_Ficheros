@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Relacion26_Ficheros.Funciones;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,7 +33,7 @@ namespace Relacion26_Ficheros.General
                 esValido = true;
                 try
                 {
-
+                    
                     opcion = (MenuOpciones)MetodosGenerales.CaptarByte((byte)Enum.GetValues<MenuOpciones>().Length);
                 
                     switch (opcion)
@@ -40,25 +41,25 @@ namespace Relacion26_Ficheros.General
                         case MenuOpciones.Salir:
                             break;
                         case MenuOpciones.Añadir:
-                            General.MetodosGenerales.Añadir(DIRECTORIO_ORIGEN);
+                            Funciones.Funciones.Añadir(DIRECTORIO_ORIGEN);
                             break;
                         case MenuOpciones.Copiar:
-                            General.MetodosGenerales.Copiar(DIRECTORIO_ORIGEN, DIRECTORIO_DESTINO, out Fichero, out FicheroNuevo);
+                            Funciones.Funciones.Copiar(DIRECTORIO_ORIGEN, DIRECTORIO_DESTINO, out Fichero, out FicheroNuevo);
                             break;
                         case MenuOpciones.Mover:
-                            General.MetodosGenerales.Mover(DIRECTORIO_ORIGEN, DIRECTORIO_DESTINO, out Fichero);
+                            Funciones.Funciones.Mover(DIRECTORIO_ORIGEN, DIRECTORIO_DESTINO, out Fichero);
                             break;
                         case MenuOpciones.Eliminar:
-                            General.MetodosGenerales.Eliminar(DIRECTORIO_DESTINO);
+                            Funciones.Funciones.Eliminar(DIRECTORIO_DESTINO);
                             break;
                         case MenuOpciones.Consultar:
                             UIPrincipal.UIPrincipal.Pausa();
 
-                         
+
 
                             // Mostrar por medio de un foreach el nombre del archivo usando GetFileName
-                            General.MetodosGenerales.MostrarDirectorio("ORIGEN", DIRECTORIO_DESTINO, DIRECTORIO_ORIGEN);
-                            General.MetodosGenerales.MostrarDirectorio("DESTINO", DIRECTORIO_DESTINO, DIRECTORIO_ORIGEN);
+                            Funciones.Funciones.MostrarDirectorio("ORIGEN", DIRECTORIO_ORIGEN);
+                            Funciones.Funciones.MostrarDirectorio("DESTINO", DIRECTORIO_DESTINO);
                             UIPrincipal.UIPrincipal.Pausa();
                             break;
 
